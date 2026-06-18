@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maravilhas d'Leda — Cardápio Digital</title>
+<meta name="description" content="Cardápio digital da Maravilhas d'Leda: comida caseira feita com carinho. Peça pelo WhatsApp em Artur Nogueira/SP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ícones reutilizáveis (sprite SVG inline — sem bibliotecas externas) -->
+<svg class="icon-sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M8.3 7.8c.3-.6.6-.6.9-.6h.6c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.2.1.4 0 .6-.1.2-.2.3-.4.5l-.4.4c-.1.1-.3.3-.1.6.2.4.8 1.2 1.6 1.9.9.8 1.7 1.1 2 1.2.3.1.5.1.6-.1l.6-.7c.2-.2.4-.3.6-.2l1.6.8c.2.1.4.2.4.4 0 .2 0 .9-.3 1.3-.3.4-1 .9-1.8.9-.8 0-2.2-.3-3.7-1.6-1.7-1.4-2.8-3.1-3-3.5-.2-.4-.7-1.2-.7-2.2 0-1 .5-1.5.7-1.7Z" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24">
+      <path d="M12 21s6.5-6.1 6.5-11A6.5 6.5 0 0 0 5.5 10c0 4.9 6.5 11 6.5 11Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="15.3" y1="15.3" x2="20" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-sprig" viewBox="0 0 32 32">
+      <path d="M16 30V6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M16 10c-3-1-5-4-5-7 3 0 6 2 7 5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M16 16c-3.5-.5-6.3-3-7-6.2 3.4-.4 6.7 1.5 8 4.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M16 10c3-1 5-4 5-7-3 0-6 2-7 5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M16 16c3.5-.5 6.3-3 7-6.2-3.4-.4-6.7 1.5-8 4.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="inicio">
+  <div class="header-top">
+    <div class="brand">
+      <svg class="brand-sprig" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      <div class="brand-text">
+        <p class="brand-eyebrow">Cardápio digital</p>
+        <h1 class="brand-name">Maravilhas <span class="brand-name-script">d'Leda</span></h1>
+        <p class="brand-tagline">Comida caseira feita com carinho</p>
+      </div>
+      <svg class="brand-sprig brand-sprig--right" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+    </div>
+
+    <a class="btn-whatsapp-header" id="header-whatsapp" data-msg="Olá! Gostaria de saber mais sobre o cardápio de hoje." href="https://wa.me/5519992037285" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+      <span>Pedir pelo WhatsApp</span>
+    </a>
+  </div>
+
+  <div class="header-info" id="header-info">
+    <p class="header-info__row">
+      <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-clock"></use></svg>
+      <span id="hours-text">Refeições: 10:30 às 15:00 · Lanches naturais e sucos até 21:00</span>
+    </p>
+    <p class="header-info__row">
+      <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-pin"></use></svg>
+      <span>Rua Angelino Paulo Turato, 107 — Residencial Conquista, Artur Nogueira/SP</span>
+    </p>
+  </div>
+</header>
+
+<!-- ===================== NAVEGAÇÃO ===================== -->
+<nav class="site-nav" aria-label="Seções do cardápio">
+  <ul>
+    <li><a href="#inicio" class="nav-link" data-nav>Início</a></li>
+    <li><a href="#refeicoes" class="nav-link" data-nav>Refeições</a></li>
+    <li><a href="#lanches" class="nav-link" data-nav>Lanches</a></li>
+    <li><a href="#sucos" class="nav-link" data-nav>Sucos</a></li>
+    <li><a href="#contato" class="nav-link" data-nav>Contato</a></li>
+  </ul>
+</nav>
+
+<main id="conteudo">
+
+  <!-- ===================== BUSCA ===================== -->
+  <div class="search-wrap">
+    <label for="busca-prato" class="visually-hidden">Buscar prato</label>
+    <div class="search-box">
+      <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-search"></use></svg>
+      <input type="search" id="busca-prato" placeholder="Buscar prato…" autocomplete="off" inputmode="search">
+    </div>
+    <p id="search-empty" class="search-empty" role="status" hidden>Nenhum prato encontrado. Tente outra busca.</p>
+  </div>
+
+  <!-- ===================== REFEIÇÕES ===================== -->
+  <section id="refeicoes" class="section-group" aria-labelledby="refeicoes-title">
+    <h2 id="refeicoes-title" class="visually-hidden">Refeições da semana</h2>
+
+    <!-- SEGUNDA-FEIRA -->
+    <div class="day-section" id="segunda" data-day="1">
+      <div class="day-banner">
+        <svg class="icon icon--leaf" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+        <h3>Segunda-feira <span class="today-flag" hidden>Hoje</span></h3>
+        <svg class="icon icon--leaf icon--mirror" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      </div>
+
+      <article class="menu-item" data-name="estrogonoff carne bovina frango">
+        <span class="badge badge--popular">Mais pedido</span>
+        <div class="item-head">
+          <h4 class="item-name">Estrogonoff</h4>
+          <span class="price">R$ 33,00</span>
+        </div>
+        <p class="item-options">Opções: carne bovina ou frango</p>
+        <ul class="item-details">
+          <li>Acompanha arroz, batata palha e salada</li>
+          <li>Serve até 1 pessoa</li>
+          <li>Demora de 65 a 75 min</li>
+        </ul>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Estrogonoff.">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+    </div>
+
+    <!-- TERÇA-FEIRA -->
+    <div class="day-section" id="terca" data-day="2">
+      <div class="day-banner">
+        <svg class="icon icon--leaf" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+        <h3>Terça-feira <span class="today-flag" hidden>Hoje</span></h3>
+        <svg class="icon icon--leaf icon--mirror" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      </div>
+      <p class="section-note">Massas — acompanha queijo parmesão ralado e suco de 250 ml à escolha. Demora de 65 a 75 min.</p>
+
+      <div class="item-grid">
+        <article class="menu-item menu-item--compact" data-name="espaguete a bolonhesa">
+          <div class="item-head">
+            <h4 class="item-name">Espaguete à Bolonhesa</h4>
+            <span class="price">R$ 28,00</span>
+          </div>
+          <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Espaguete à Bolonhesa.">
+            Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </a>
+        </article>
+
+        <article class="menu-item menu-item--compact" data-name="espaguete ao molho branco">
+          <div class="item-head">
+            <h4 class="item-name">Espaguete ao Molho Branco</h4>
+            <span class="price">R$ 28,00</span>
+          </div>
+          <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Espaguete ao Molho Branco.">
+            Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </a>
+        </article>
+
+        <article class="menu-item menu-item--compact" data-name="espaguete ao molho branco com frango">
+          <div class="item-head">
+            <h4 class="item-name">Espaguete ao Molho Branco com Frango</h4>
+            <span class="price">R$ 28,00</span>
+          </div>
+          <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Espaguete ao Molho Branco com Frango.">
+            Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </a>
+        </article>
+
+        <article class="menu-item menu-item--compact" data-name="espaguete com almondegas a moda italiana">
+          <div class="item-head">
+            <h4 class="item-name">Espaguete com Almôndegas à Moda Italiana</h4>
+            <span class="price">R$ 32,00</span>
+          </div>
+          <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Espaguete com Almôndegas à Moda Italiana.">
+            Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+
+    <!-- QUARTA A SÁBADO — FEIJOADA -->
+    <div class="day-section" id="feijoada" data-day="3,4,5,6">
+      <div class="day-banner">
+        <svg class="icon icon--leaf" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+        <h3>Quarta a sábado <span class="today-flag" hidden>Hoje</span></h3>
+        <svg class="icon icon--leaf icon--mirror" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      </div>
+
+      <article class="menu-item" data-name="feijoada 500g">
+        <span class="badge badge--special">Especial da casa</span>
+        <div class="item-head">
+          <h4 class="item-name">Feijoada 500g</h4>
+          <span class="price">R$ 45,00</span>
+        </div>
+        <p class="item-options">Serve 2 pessoas</p>
+        <ul class="item-details">
+          <li>Acompanha arroz, couve, farofa, torresmo e vinagrete</li>
+          <li>Sobremesa: laranja, leite condensado e coco ralado</li>
+        </ul>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir uma Feijoada 500g.">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+    </div>
+
+    <!-- QUINTA-FEIRA -->
+    <div class="day-section" id="vaca-atolada" data-day="4">
+      <div class="day-banner">
+        <svg class="icon icon--leaf" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+        <h3>Quinta-feira <span class="today-flag" hidden>Hoje</span></h3>
+        <svg class="icon icon--leaf icon--mirror" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      </div>
+
+      <article class="menu-item" data-name="vaca atolada">
+        <div class="item-head">
+          <h4 class="item-name">Vaca Atolada</h4>
+          <span class="price">R$ 40,00</span>
+        </div>
+        <ul class="item-details">
+          <li>Acompanha arroz, farofa e salada</li>
+          <li>Brinde: suco 250 ml</li>
+          <li>Demora de 65 a 75 min</li>
+        </ul>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir uma Vaca Atolada.">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+    </div>
+
+    <!-- SEXTA-FEIRA -->
+    <div class="day-section" id="file-grelhado" data-day="5">
+      <div class="day-banner">
+        <svg class="icon icon--leaf" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+        <h3>Sexta-feira <span class="today-flag" hidden>Hoje</span></h3>
+        <svg class="icon icon--leaf icon--mirror" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      </div>
+
+      <article class="menu-item" data-name="file grelhado frango bovino">
+        <span class="badge badge--recommended">Recomendado</span>
+        <div class="item-head">
+          <h4 class="item-name">Filé Grelhado</h4>
+          <span class="price">R$ 45,00</span>
+        </div>
+        <p class="item-options">Opções: frango ou bovino</p>
+        <ul class="item-details">
+          <li>Acompanha arroz, farofa, batata palha e salada — ou legumes no vapor</li>
+          <li>Demora de 65 a 75 min</li>
+        </ul>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Filé Grelhado.">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== LANCHES NATURAIS ===================== -->
+  <section id="lanches" class="section-group" aria-labelledby="lanches-title">
+    <div class="day-banner">
+      <svg class="icon icon--leaf" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      <h3 id="lanches-title">Lanches Naturais</h3>
+      <svg class="icon icon--leaf icon--mirror" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+    </div>
+    <p class="section-note">Todos os lanches saem por R$ 16,90, finalizados com azeite, orégano, sal e salsinha.</p>
+
+    <div class="item-grid">
+      <article class="menu-item menu-item--compact" data-name="pate de frango com salada">
+        <div class="item-head">
+          <h4 class="item-name">Patê de Frango com Salada</h4>
+          <span class="price">R$ 16,90</span>
+        </div>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Lanche Natural de Patê de Frango com Salada.">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+
+      <article class="menu-item menu-item--compact" data-name="peito de peru com queijo maionese e salada">
+        <div class="item-head">
+          <h4 class="item-name">Peito de Peru com Queijo, Maionese e Salada</h4>
+          <span class="price">R$ 16,90</span>
+        </div>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Lanche Natural de Peito de Peru com Queijo.">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+
+      <article class="menu-item menu-item--compact" data-name="vegetariano requeijao humus pate de berinjela queijo alface tomate rucula pepino cenoura beterraba">
+        <div class="item-head">
+          <h4 class="item-name">Vegetariano</h4>
+          <span class="price">R$ 16,90</span>
+        </div>
+        <p class="item-options">Escolha entre: requeijão, húmus, patê de berinjela ou queijo, com alface, tomate, rúcula, pepino, cenoura ou beterraba ralada.</p>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um Lanche Natural Vegetariano.">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== SUCOS ===================== -->
+  <section id="sucos" class="section-group" aria-labelledby="sucos-title">
+    <div class="day-banner">
+      <svg class="icon icon--leaf" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+      <h3 id="sucos-title">Sucos Naturais</h3>
+      <svg class="icon icon--leaf icon--mirror" aria-hidden="true"><use href="#icon-sprig"></use></svg>
+    </div>
+    <p class="section-note">500 ml por R$ 12,00.</p>
+
+    <div class="item-grid item-grid--juices">
+      <article class="menu-item menu-item--juice" data-name="suco morango">
+        <h4 class="item-name">Morango</h4>
+        <span class="price">R$ 12,00</span>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um suco de Morango (500 ml).">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+
+      <article class="menu-item menu-item--juice" data-name="suco abacaxi">
+        <h4 class="item-name">Abacaxi</h4>
+        <span class="price">R$ 12,00</span>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um suco de Abacaxi (500 ml).">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+
+      <article class="menu-item menu-item--juice" data-name="suco maracuja">
+        <h4 class="item-name">Maracujá</h4>
+        <span class="price">R$ 12,00</span>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um suco de Maracujá (500 ml).">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+
+      <article class="menu-item menu-item--juice" data-name="suco laranja">
+        <h4 class="item-name">Laranja</h4>
+        <span class="price">R$ 12,00</span>
+        <a class="btn-order" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá, gostaria de pedir um suco de Laranja (500 ml).">
+          Fazer pedido <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </a>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer" id="contato">
+  <div class="footer-brand">
+    <p class="brand-name footer-brand-name">Maravilhas <span class="brand-name-script">d'Leda</span></p>
+    <p class="brand-tagline">Comida caseira feita com carinho</p>
+  </div>
+
+  <ul class="footer-info">
+    <li>
+      <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+      <a href="https://wa.me/5519992037285" target="_blank" rel="noopener">(19) 99203-7285</a>
+    </li>
+    <li>
+      <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-pin"></use></svg>
+      <span>Rua Angelino Paulo Turato, 107 — Residencial Conquista, Artur Nogueira/SP</span>
+    </li>
+    <li>
+      <svg class="icon icon--sm" aria-hidden="true"><use href="#icon-clock"></use></svg>
+      <span>Segunda a sábado — Refeições 10:30–15:00 · Lanches e sucos até 21:00</span>
+    </li>
+  </ul>
+
+  <p class="footer-rights">© <span id="footer-year"></span> Maravilhas d'Leda. Todos os direitos reservados.</p>
+</footer>
+
+<a class="fab-whatsapp" id="fab-whatsapp" href="https://wa.me/5519992037285" target="_blank" rel="noopener" data-msg="Olá! Gostaria de saber mais sobre o cardápio de hoje." aria-label="Pedir pelo WhatsApp">
+  <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
